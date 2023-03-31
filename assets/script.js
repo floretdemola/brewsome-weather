@@ -14,3 +14,6 @@ function getApi() {
       //Loop over the data to generate a table, each table row will have a link to the repo url
     });
   };
+
+  Button.addEventListener('click', getApi);
+
