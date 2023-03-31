@@ -1,4 +1,4 @@
-# Project: Spotted Playlists
+# Project: Party Rockers (TBD Title)
 # 07 Project 1: Interactive Front-End Application
 
 ## Proposal: Spotify Streaming Services using playlists to curate your own personal playlist with a cool animation
@@ -8,21 +8,19 @@
 
 ```
 AS A User
-I WANT to listen to new music from Spotify's playlist
-SO THAT I can created a new playlist for me to enjoy
+I WANT to see where my local brewery is
+SO THAT I can buy a beer
 ```
 
 
 ## Acceptance Criteria
 
 ```
-GIVEN I need to listen to new music
-WHEN I load a new playlist
-THEN I am presented with an animated music visualizer and music
-WHEN I click one of the favorite button
-THEN the UI on the right saves the new song
-WHEN I favorite enough songs
-THEN the app will create a new playlist on the right side of the page
+GIVEN I need to find the closest brewery
+WHEN I enter my city
+THEN I am presented with a list of breweries
+WHEN I click one of the breweris
+THEN the UI shows me how far away it is
 ```
 
 
