@@ -1,7 +1,7 @@
 # Project: Brewsome Weather
 # 07 Project 1: Interactive Front-End Application
 
-## Proposal: Spotify Streaming Services using playlists to curate your own personal playlist with a cool animation
+## Proposal: Find my local bar
 
 
 ## User Story
