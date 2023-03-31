@@ -1,6 +1,5 @@
 var tableBody = document.getElementById('repo-table');
 var Button = document.getElementById('button');
-var apikey = 'SNRSTR4yxnVLF4rT19bIPdJ1pFJQnyeA';
 
 function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
@@ -14,3 +13,4 @@ function getApi() {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
     });
+  };
