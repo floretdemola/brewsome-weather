@@ -14,5 +14,14 @@ function getApi() {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
     });
+<<<<<<< HEAD
   }
 Button.addEventListener('click', getApi);
+=======
+}
+
+fetchButton.addEventListener('click', getApi);
+
+
+  
+>>>>>>> 6ed6036589743dba31f55ee1af89384948d311d1
