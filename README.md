@@ -3,6 +3,35 @@
 
 ## Proposal: Spotify Streaming Services using playlists to curate your own personal playlist with a cool animation
 
+
+## User Story
+
+```
+AS A User
+I WANT to listen to new music from Spotify's playlist
+SO THAT I can created a new playlist for me to enjoy
+```
+
+
+## Acceptance Criteria
+
+```
+GIVEN I need to listen to new music
+WHEN I load a new playlist
+THEN I am presented with an animated music visualizer and music
+WHEN I click one of the favorite button
+THEN the UI on the right saves the new song
+WHEN I favorite enough songs
+THEN the app will create a new playlist on the right side of the page
+```
+
+
+
+
+
+
+
+
 At the conclusion of each phase of this course, you’ll work with a group of your fellow students to create a **project**. A project is collaborative work among a group of developers to create an application that solves a real-world problem. Projects model the experience you’ll encounter in every development role at any company, from large multinational businesses to small startups. Coding is collaborative.
 
 A project is a bit different from the Challenge assignments you’ve worked on so far. One of the biggest differences is that you’ll no longer build an application by yourself! This has some advantages&mdash;you won’t have to do all of the work, you can divide up duties, and you can share skills and knowledge with other developers and lean on their strengths. This can also be challenging if you’re used to working alone. Constant communication and time management are just two of the skills you’ll need to practice to make sure everyone in your group works together to complete the project. 
