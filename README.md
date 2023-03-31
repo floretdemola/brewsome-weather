@@ -1,4 +1,4 @@
-# Project: Party Rockers (TBD Title)
+# Project: Brewsome Weather
 # 07 Project 1: Interactive Front-End Application
 
 ## Proposal: Spotify Streaming Services using playlists to curate your own personal playlist with a cool animation
@@ -18,7 +18,7 @@ SO THAT I can buy a beer
 ```
 GIVEN I need to find the closest brewery
 WHEN I enter my city
-THEN I am presented with a list of breweries
+THEN I am presented with a list of breweries with the local weather
 WHEN I click one of the breweris
 THEN the UI shows me how far away it is
 ```
