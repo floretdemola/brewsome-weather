@@ -5,20 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Spotted Playlist</title>
+    <title>Brewsome Weather!</title>
 </head>
 <body>
     <header>
-    <div class="labelbox">
-        <h1 style="text-align:center">Party Rockers in the House!</h1>
+        <div class="labelbox">
+            <h1 style="text-align: center">Brewsome Weather!</h1>
         </div>
     </header>
-    <div>
-        <input id="textbox" type="text">
-        <button id="button">Search</button>
+    <div class="container">
+        <form class="form">
+            <label for="city">Enter your city & state</label>
+            <input type="text" name="city-name" id="cityname" placeholder="For example: Miami, FL"></input>
+            <button type="submit">Search</button>
+        </form>
+        <div class="city-weather" id="forecast"></div>
+        
+        <div class="local-brewery"></div>
     </div>
 
+    <div class="city-weather" id="forecast"></div>
+    <aside class="card">
+        <h3>Weather</h3>
+        <div class="card-body">
+            <img id="weather-icon" src="https://openweathermap.org/img/wn/${weatherIcon}.png"/>
+            Temp: ${response.list[i].main.temp} F
+        </div>
+    </aside>
+    <div class="local-brewery"></div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

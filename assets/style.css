@@ -1,0 +1,66 @@
+:root {
+    --light: #f6f6f6;
+    --darkblue: #2c3e50;
+    --lightblue: #83c9f7;
+    --red: #e74c3c;
+    --lightred: #fbd0c7;
+    --lightyellow: #fff5d1;
+  }
+  
+  body {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    background-color: var(--darkblue);
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    color: var(--light);
+  }
+
+  .labelbox {
+    margin: auto;
+    width: 15%;
+    align-items: center;
+    background-color: var(--darkblue);
+
+  }
+
+  .container {
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; 
+  }
+
+
+  .city-weather {
+    text-align: center;
+    color: var(--light);
+    position: fixed;
+    margin: auto;
+    padding: auto;
+    width: 11rem;
+  }
+
+  .card  {
+    display: block;
+    float: right;
+    width: 25%;
+    text-align: center;
+    color: var(--light);
+  }
+
+
+  .local-brewery {
+    display: flex;
+    grid-row: auto;
+    color: var(--light);
+
+  }
