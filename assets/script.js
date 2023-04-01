@@ -1,9 +1,10 @@
-var tableBody = document.getElementById('repo-table');
+var Brewerylist = document.getElementById('local-brewery');
 var Button = document.getElementById('button');
+var cityname = '';
 
 function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
-  var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city=san_diego&per_page=3';
+  var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city=' + city + '&per_page=3';
 
   fetch(requestUrl)
     .then(function (response) {
@@ -12,9 +13,16 @@ function getApi() {
     .then(function (data) {
       console.log(data)
       //Loop over the data to generate a table, each table row will have a link to the repo url
+    })
+    //Creates the elemnt and displays it as a list item in html page. We can change it to cards later. :)
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        var listItem = document.createElement('li');
+        listItem.textContent = data[i].html_url;
+        Brewerylist.appendChild(listItem);
+      }
     });
   };
-
   Button.addEventListener('click', getApi);
 
 
