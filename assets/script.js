@@ -1,33 +1,46 @@
 var Brewerylist = document.getElementById('local-brewery');
 var Button = document.getElementById('button');
-var cityname = '';
+var citynameinput = document.querySelector('#cityname');
+var Brewcontainer = document.querySelector('#local-brewery');
 
-function getApi() {
-  // fetch request gets a list of all the repos for the node.js organization
-  var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city=' + city + '&per_page=3';
-
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-      //Loop over the data to generate a table, each table row will have a link to the repo url
-    })
-    //Creates the elemnt and displays it as a list item in html page. We can change it to cards later. :)
-    .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i].html_url;
-        Brewerylist.appendChild(listItem);
-      }
-    });
+  var formSubmitHandler = function (event) {
+    event.preventDefault();
+  
+    var breweries= citynameinput.value.trim();
+  
+    if (breweries) {
+      getBrews(breweries);
+  
+      Brewcontainer.textContent = '';
+      citynameinput.value = '';
+    } else {
+      alert('Please enter a valid city');
+    }
   };
-  Button.addEventListener('click', getApi);
+  function getApi() {
+    // fetch request gets a list of all the repos for the breweries for a city that the user inputs.
+    var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city=' + city + '&per_page=3';
+  
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+        //Loop over the data to generate a table, each table row will have a link to the repo url
+      })
+      //Creates the elemnt and displays it as a list item in html page. We can change it to cards later. :)
+      .then(function (data) {
+        for (var i = 0; i < data.length; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = data[i].html_url;
+          Brewerylist.appendChild(listItem);
+        }
+      });
+    };
+    Button.addEventListener('click', getApi);
 
-
-
-  function getCityWeather(id) {
+ /* function getCityWeather(id) {
 	  $("#forecast").show();
   
 	  var api_key = "fa12e56f847c2ed6ba203455ba863cf5";
@@ -57,4 +70,4 @@ function getApi() {
           
               $("#city-weather").html(cardHTML);
       }}
-    )};
+    )}; */
