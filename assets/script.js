@@ -1,5 +1,6 @@
 var brewContainer = document.querySelector('#local-brewery');
 var city = document.querySelector('#cityname').value;
+<<<<<<< HEAD
 var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + city + "&per_page=5";
 var submit = document.querySelector('#submit');
 var formE1 = document.querySelector('#form');
@@ -17,6 +18,17 @@ var formSubmitHandler = function (event) {
   console.log(breweries);
 
 
+=======
+var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + city + "&per_page=20";
+var submit = document.querySelector('#submit');
+var formE1 = document.querySelector('#form');
+
+var formSubmitHandler = function (event) {
+  event.preventDefault();
+
+var breweries= city.value;
+
+>>>>>>> 890e8e162fab2098b89e97011817c9feb5a02a19
   if (breweries) {
     getApi(breweries);
 
@@ -28,8 +40,11 @@ var formSubmitHandler = function (event) {
 
 };
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 890e8e162fab2098b89e97011817c9feb5a02a19
 function getApi() {
   fetch(api)
     .then(function (response) {
