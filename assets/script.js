@@ -1,63 +1,38 @@
-var Brewerylist = document.getElementById('local-brewery');
-var Button = document.getElementById('button');
-var citynameinput = document.querySelector('#cityname');
-var Brewcontainer = document.querySelector('#local-brewery');
+var brewContainer = document.querySelector('#local-brewery');
+var city = document.querySelector('#cityname').value;
+var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + city + "&per_page=20";
+var submit = document.querySelector('#submit');
+var formE1 = document.querySelector('#form');
 
-var Brewapi = "https://api.openbrewerydb.org/v1/breweries?by_city=";
-var Searchparam = '&per_page=3';
+var formSubmitHandler = function (event) {
+  event.preventDefault();
 
-function Brewery() {
-  Button.addEventListener('click',CityInput);
-  var input = document.getElementById('#cityname');
+var breweries= city.value;
 
-function CityInput() {
-  var url = Brewapi + input.value() + Searchparam;
+  if (breweries) {
+    getApi(breweries);
+
+    brewContainer.textContent = '';
+    city.value = '';
+  } else {
+    alert('Please enter a valid city');
   }
-  fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
-        //Loop over the data to generate a table, each table row will have a link to the repo url
-      });
-}
-  /*var formSubmitHandler = function (event) {
-    event.preventDefault();
-  
-    var breweries= citynameinput.value.trim();
-  
-    if (breweries) {
-      getBrews(breweries);
-  
-      Brewcontainer.textContent = '';
-      citynameinput.value = '';
-    } else {
-      alert('Please enter a valid city');
+
+};
+
+function getApi() {
+  fetch(api)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
     }
-  };*/
- /* function getApi() {
-    // fetch request gets a list of all the repos for the breweries for a city that the user inputs.
-    var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city={city}';
-  
-    fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
-        //Loop over the data to generate a table, each table row will have a link to the repo url
-      })
-      //Creates the elemnt and displays it as a list item in html page. We can change it to cards later. :)
-      .then(function (data) {
-        for (var i = 0; i < data.length; i++) {
-          var listItem = document.createElement('li');
-          listItem.textContent = data[i].html_url;
-          Brewerylist.appendChild(listItem);
-        }
-      });
-    };
-    /*Button.addEventListener('click', getApi);
+    )};
+
+formE1.addEventListener('submit',formSubmitHandler);
+submit.addEventListener('click', getApi);
+
 
  /* function getCityWeather(id) {
 	  $("#forecast").show();
