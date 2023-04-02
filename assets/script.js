@@ -3,7 +3,26 @@ var Button = document.getElementById('button');
 var citynameinput = document.querySelector('#cityname');
 var Brewcontainer = document.querySelector('#local-brewery');
 
-  var formSubmitHandler = function (event) {
+var Brewapi = "https://api.openbrewerydb.org/v1/breweries?by_city=";
+var Searchparam = '&per_page=3';
+
+function Brewery() {
+  Button.addEventListener('click',CityInput);
+  var input = document.getElementById('#cityname');
+
+function CityInput() {
+  var url = Brewapi + input.value() + Searchparam;
+  }
+  fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+        //Loop over the data to generate a table, each table row will have a link to the repo url
+      });
+}
+  /*var formSubmitHandler = function (event) {
     event.preventDefault();
   
     var breweries= citynameinput.value.trim();
@@ -16,10 +35,10 @@ var Brewcontainer = document.querySelector('#local-brewery');
     } else {
       alert('Please enter a valid city');
     }
-  };
-  function getApi() {
+  };*/
+ /* function getApi() {
     // fetch request gets a list of all the repos for the breweries for a city that the user inputs.
-    var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city=' + city + '&per_page=3';
+    var requestUrl = 'https://api.openbrewerydb.org/v1/breweries?by_city={city}';
   
     fetch(requestUrl)
       .then(function (response) {
@@ -38,7 +57,7 @@ var Brewcontainer = document.querySelector('#local-brewery');
         }
       });
     };
-    Button.addEventListener('click', getApi);
+    /*Button.addEventListener('click', getApi);
 
  /* function getCityWeather(id) {
 	  $("#forecast").show();
