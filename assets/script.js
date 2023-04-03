@@ -1,27 +1,42 @@
 var brewContainer = document.querySelector('#local-brewery');
-var city = document.querySelector('#cityname').value;
-var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + city + "&per_page=20";
+// var city = document.querySelector('#cityname').value;
+var city = document.getElementById('cityname')
+// var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + city.value + "&per_page=5";
 var submit = document.querySelector('#submit');
 var formE1 = document.querySelector('#form');
+
+console.log('Inputted city = ' + city.value)
+// console.log(api);
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-var breweries= city.value;
+  var breweries = city.value;
+  var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + breweries + "&per_page=5";
+
+  console.log('City = ' + breweries);
+  console.log('API for formSubmitHandler function is ' + api);
+
 
   if (breweries) {
-    getApi(breweries);
+    getApi(api);
 
     brewContainer.textContent = '';
-    city.value = '';
+   // city.value = '';
+
   } else {
     alert('Please enter a valid city');
   }
 
 };
 
-function getApi() {
+
+
+function getApi(api) {
   fetch(api)
+
+  // console.log(api)
+
     .then(function (response) {
       return response.json();
     })
@@ -50,7 +65,7 @@ submit.addEventListener('click', getApi);
       var cardHTML = "";
     
       // Loop for forecast
-      for (var i = 1; i < response.list.length; i -= 1) {
+      for (var i = 1; i < response.list.length; i++) {
         // icon from response
             var weatherIcon = response.list[i].weather[0].icon;
             cardHTML += `
