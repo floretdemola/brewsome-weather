@@ -5,7 +5,7 @@ var city = document.getElementById('cityname')
 var submit = document.querySelector('#submit');
 var formE1 = document.querySelector('#form');
 
-console.log('Inputted city = ' + city.value)
+// console.log('Inputted city = ' + city.value);
 // console.log(api);
 
 var formSubmitHandler = function (event) {
@@ -19,7 +19,7 @@ var formSubmitHandler = function (event) {
 
 
   if (breweries) {
-    getApi(api);
+    getApi(breweries);
 
     brewContainer.textContent = '';
    // city.value = '';
@@ -31,13 +31,13 @@ var formSubmitHandler = function (event) {
 };
 
 
-
-function getApi(api) {
-  fetch(api)
-
-  // console.log(api)
+function getApi(breweries) {
+  var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + breweries + "&per_page=5";
+  console.log('API for formSubmitHandler function is ' + api);
+  return fetch(api)
 
     .then(function (response) {
+      console.log(...response.headers);
       return response.json();
     })
     .then(function (data) {
@@ -50,6 +50,10 @@ submit.addEventListener('click', getApi);
 
 
  /* function getCityWeather(id) {
+
+
+
+
 	  $("#forecast").show();
   
 	  var api_key = "fa12e56f847c2ed6ba203455ba863cf5";
@@ -80,3 +84,17 @@ submit.addEventListener('click', getApi);
               $("#city-weather").html(cardHTML);
       }}
     )}; */
+
+
+/* Psuedo Code 
+Breweries
+  Pull the information from the arrays from the different breweries 
+  
+  Create elements and cards where this information will live 5 cards
+
+Weather
+
+  When you search for the city, the data from the weather API will populate in it's own card to the right of the screen.
+  Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
+
+*/
