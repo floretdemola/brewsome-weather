@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="assets/style.css">
     <title>Brewsome Weather!</title>
 </head>
@@ -19,23 +20,33 @@
             <input type="text" name="city-name" id="cityname" placeholder="For example: Miami, FL"></input>
             <button id="submit" type="submit">Search</button>
         </form>
-        <div class="city-weather" id="forecast"></div>
-        
         <div id="local-brewery" class="local-brewery"></div>
     </div>
 
-    <!---<div class="city-weather" id="forecast"></div>
-    <aside class="card">
-        <h3>Weather</h3>
-        <div class="card-body">
+    <div class="city-weather" id="forecast">
+        <aside class="card">
+        <h3>Weather <span id ="city-name"></span> <span id="date-today"></span></h3>
+            <div class="card-body">
             <img id="weather-icon" src="https://openweathermap.org/img/wn/${weatherIcon}.png"/>
-            Temp: ${response.list[i].main.temp} F 
-        </div>--->
-    </aside>
+                <p class="lead">
+                    Temperature: <span id="temperature"></span id="temperature">
+                </p>
+                <p class="lead">
+                    Wind: <span id="wind-speed"></span>
+                </p>
+                <p class="lead">
+                    Humidity: <span id="humidity"></span>
+                </p> 
+            </div>
+        </aside>
+    </div> 
+
     <div class="local-brewery"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script>feather.replace()</script>
     <script src="assets/script.js"></script>
 </body>
 </html>
