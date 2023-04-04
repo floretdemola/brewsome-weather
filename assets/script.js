@@ -23,7 +23,8 @@ $(document).ready(function() {
 var submitCity = function (city) {
   
   $("#forecast").show();
-  
+  $("#Brewery").show();
+
   var breweries = city;
   var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + breweries + "&per_page=5";
 
@@ -49,7 +50,7 @@ function getApi(breweries) {
   return fetch(api)
 
     .then(function (response) {
-      
+      console.log(...response.headers);
       return response.json();
     })
     .then(function (data) {
@@ -58,31 +59,17 @@ function getApi(breweries) {
     }
     )};
 
-    function getBrewery(url1) {
-      fetch (url1)
-      .then(function(response){
-        return response.json();
-        })
-        .then(function (data) {
-        console.log(data)
-        $("#name").text(data[0].name);
-        $("#street").text(data[0].street);
-        $("#phone").text(data[0].phone);
-        $("#website").text(data[0].website_url);
-        $("#local-brewery").html(card1HTML);
-        var card1HTML = "";
-      })
-    };
-$('#Brewery').hide();
 $("#forecast").hide();
+$("#Brewery").hide();
+
 
 // formE1.addEventListener('submit',submitCity);
 // submit.addEventListener('click', getApi);
 
-
+// Latitude & Longitude for weather
  function getLatLon (city) {
     $("#forecast").show();
-    $('#Brewery').show();
+  
 	  var api_key = "5dc2c34e3d2647f6f3d1dc8a103c14d7";
 	  var baseURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${api_key}`;
 
@@ -104,6 +91,7 @@ $("#forecast").hide();
       })
     };
 
+    // getting the city's weather
     function getCityWeather(url) {
     fetch (url)
     .then(function(response){
@@ -125,17 +113,39 @@ $("#forecast").hide();
     })
   };
 
+  function getBrewery(url1) {
+    fetch(url1)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        var card1HTML = "";
+        
+        for (let i = 0; i < data.length; i++) {
+          card1HTML +=  "<div>" +
+          "<h2>" + data[i].name + "</h2>" +
+          "<p>" + data[i].street + "</p>" +
+          "<p>" + data[i].phone + "</p>" +
+          "<p>" + data[i].website_url + "</p>" +
+          "</div>";
+        
+          if (!data[i]) {
+          $("<p>").hide();
+          }
+        }
+  
+        $("#local-brewery").html(card1HTML);
+      })
+  };
+
 /* Psuedo Code 
 Breweries
   Pull the information from the arrays from the different breweries 
   
   Create elements and cards where this information will live 5 cards
-
 Weather
-
   When you search for the city, the data from the weather API will populate in it's own card to the right of the screen.
   Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
-
 */
 
 
