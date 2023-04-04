@@ -65,16 +65,15 @@ function getApi(breweries) {
         })
         .then(function (data) {
         console.log(data)
-        $("#name").text(data.name);
-        $("#street").text(data.street);
-        $("#phone").text(data.phone);
-        $("#website").text(data.website_url);
-  
-      var card1HTML = "";
-      $("#local-brewery").html(card1HTML);
+        $("#name").text(data[0].name);
+        $("#street").text(data[0].street);
+        $("#phone").text(data[0].phone);
+        $("#website").text(data[0].website_url);
+        $("#local-brewery").html(card1HTML);
+        var card1HTML = "";
       })
     };
-  
+$('#Brewery').hide();
 $("#forecast").hide();
 
 // formE1.addEventListener('submit',submitCity);
@@ -83,7 +82,7 @@ $("#forecast").hide();
 
  function getLatLon (city) {
     $("#forecast").show();
-  
+    $('#Brewery').show();
 	  var api_key = "5dc2c34e3d2647f6f3d1dc8a103c14d7";
 	  var baseURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${api_key}`;
 
