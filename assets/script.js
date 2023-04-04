@@ -49,14 +49,32 @@ function getApi(breweries) {
   return fetch(api)
 
     .then(function (response) {
-      console.log(...response.headers);
+      
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
+      getBrewery(api);
     }
     )};
 
+    function getBrewery(url1) {
+      fetch (url1)
+      .then(function(response){
+        return response.json();
+        })
+        .then(function (data) {
+        console.log(data)
+        $("#name").text(data.name);
+        $("#street").text(data.street);
+        $("#phone").text(data.phone);
+        $("#website").text(data.website_url);
+  
+      var card1HTML = "";
+      $("#local-brewery").html(card1HTML);
+      })
+    };
+  
 $("#forecast").hide();
 
 // formE1.addEventListener('submit',submitCity);
