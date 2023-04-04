@@ -8,15 +8,27 @@ var formE1 = document.querySelector('#form');
 // console.log('Inputted city = ' + city.value);
 // console.log(api);
 
-var formSubmitHandler = function (event) {
-  event.preventDefault();
+$(document).ready(function() {
+	$("#submit").on("click", function(event) {
+	  event.preventDefault();
+	  var city = $("#cityname").val();
+	    if (city == "") {
+		  return;
+	    } else {
+		getLatLon (city);
+	  submitCity(city);
+    }
+	});
 
-  var breweries = city.value;
+var submitCity = function (city) {
+  
+  $("#forecast").show();
+  
+  var breweries = city;
   var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + breweries + "&per_page=5";
 
   console.log('City = ' + breweries);
-  console.log('API for formSubmitHandler function is ' + api);
-
+  console.log('API for submitCity function is ' + api);
 
   if (breweries) {
     getApi(breweries);
@@ -45,46 +57,56 @@ function getApi(breweries) {
     }
     )};
 
-formE1.addEventListener('submit',formSubmitHandler);
-submit.addEventListener('click', getApi);
+$("#forecast").hide();
+
+// formE1.addEventListener('submit',submitCity);
+// submit.addEventListener('click', getApi);
 
 
- /* function getCityWeather(id) {
-
-
-
-
-	  $("#forecast").show();
+ function getLatLon (city) {
+    $("#forecast").show();
   
-	  var api_key = "fa12e56f847c2ed6ba203455ba863cf5";
-	  var baseURL = `https://api.openweathermap.org/data/2.5/forecast?appid=${api_key}`;
-  
-	  var unit = "imperial";
-	  var newURL = baseURL + "&id=" + id + "&units=" + unit;
-  
-	  $.ajax({
-      url: newURL,
-      method: "GET"
-      }).then(function(response) {
-      var cardHTML = "";
-    
-      // Loop for forecast
-      for (var i = 1; i < response.list.length; i++) {
-        // icon from response
-            var weatherIcon = response.list[i].weather[0].icon;
-            cardHTML += `
-                    <div class="card">
-                    <h3>Weather</h3>
-                    <div class="card-body">
-                        <img id="weather-icon" src="https://openweathermap.org/img/wn/${weatherIcon}.png"/>
-                        Temp: ${response.list[i].main.temp} F
-                    </div>
-                    </div>`;
-          
-              $("#city-weather").html(cardHTML);
-      }}
-    )}; */
+	  var api_key = "5dc2c34e3d2647f6f3d1dc8a103c14d7";
+	  var baseURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${api_key}`;
 
+    // var newURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
+  
+  
+	  // var unit = "imperial";
+	  // var newURL = baseURL + "&q=" + city + "&units=" + unit; 
+  
+	  fetch (baseURL)
+
+    .then(function(response){
+      return response.json();
+      })
+      .then(function (data) {
+        var newURL = `https://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&units=imperial&appid=${api_key}`;
+        console.log(data);
+        getCityWeather(newURL);
+      })
+    };
+
+    function getCityWeather(url) {
+    fetch (url)
+    .then(function(response){
+      return response.json();
+      })
+      .then(function (data) {
+      console.log(data)
+      $("#city-name").text(data.name);
+      $("#date-today").text(`(${dayjs().format('MM/DD/YYYY')})`);
+      $("#weather-icon").attr(
+        "src",
+        `https://openweathermap.org/img/wn/${data.weather[0]}.png`);
+      $("#temperature").text(data.main.temp + " F");
+      $("#humidity").text(data.main.humidity + " %");
+      $("#wind-speed").text(data.wind.speed + " MPH");
+
+    var cardHTML = "";
+    $("#city-weather").html(cardHTML);
+    })
+  };
 
 /* Psuedo Code 
 Breweries
@@ -98,3 +120,6 @@ Weather
   Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
 
 */
+
+
+});
