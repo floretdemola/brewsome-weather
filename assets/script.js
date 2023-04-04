@@ -23,7 +23,8 @@ $(document).ready(function() {
 var submitCity = function (city) {
   
   $("#forecast").show();
-  
+  $("#Brewery").show();
+
   var breweries = city;
   var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + breweries + "&per_page=5";
 
@@ -53,16 +54,19 @@ function getApi(breweries) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
+      getBrewery(api);
     }
     )};
 
 $("#forecast").hide();
+$("#Brewery").hide();
+
 
 // formE1.addEventListener('submit',submitCity);
 // submit.addEventListener('click', getApi);
 
-
+// Latitude & Longitude for weather
  function getLatLon (city) {
     $("#forecast").show();
   
@@ -87,6 +91,7 @@ $("#forecast").hide();
       })
     };
 
+    // getting the city's weather
     function getCityWeather(url) {
     fetch (url)
     .then(function(response){
@@ -106,6 +111,31 @@ $("#forecast").hide();
     var cardHTML = "";
     $("#city-weather").html(cardHTML);
     })
+  };
+
+  function getBrewery(url1) {
+    fetch(url1)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        var card1HTML = "";
+        
+        for (let i = 0; i < data.length; i++) {
+          card1HTML +=  "<div>" +
+          "<h2>" + data[i].name + "</h2>" +
+          "<p>" + data[i].street + "</p>" +
+          "<p>" + data[i].phone + "</p>" +
+          "<p>" + data[i].website_url + "</p>" +
+          "</div>";
+        
+          if (!data[i]) {
+          $("<p>").hide();
+          }
+        }
+  
+        $("#local-brewery").html(card1HTML);
+      })
   };
 
 /* Psuedo Code 
