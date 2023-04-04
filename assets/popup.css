@@ -1,0 +1,78 @@
+:root {
+    --light: #f6f6f6;
+    --darkblue: #2c3e50;
+    --lightblue: #83c9f7;
+    --red: #e74c3c;
+    --lightred: #fbd0c7;
+    --lightyellow: #fff5d1;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* Button Design */
+
+.submit {
+    padding: 10px 60px;
+    background: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+/* Popup style and function */
+
+.popup {
+    width: 400px;
+    background: var(--lightred);
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: var(--darkblue);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Checkmark position and style */
+
+.check {
+    width: 200px;
+    margin-top: -100px;
+    margin-left: 20px;
+}
+
+.popup_h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 30px 0 10px;
+}
+
+.popup_button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: var(--red);
+    color: var(--lightred);
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
