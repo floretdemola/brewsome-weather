@@ -20,9 +20,36 @@
             <input type="text" name="city-name" id="cityname" placeholder="For example: Miami, FL"></input>
             <button id="submit" type="submit">Search</button>
         </form>
-        <div id="local-brewery" class="local-brewery"></div>
     </div>
+    
+    <div id='local-brewery' class='local-brewery'></div>
+    <div class="local-brewery" id="Brewery">
+        <div class="card1"></div>
+        <h3>Local Breweries <span id ="city-name1"></span></h3>
+            <div class="card-body">
+                <p class="lead">
+                </span id="name">
+                </p>
+                <p class="lead">
+                <span id="street"></span>
+                </p>
+                <p class="lead">
+                <span id="phone"></span>
+                </p> 
+                <p class="lead">
+                <span id="website"></span>
+                </p> 
+            </div>
 
+    <!--Added code for JS for the breweries to be populated. Please add the style here so we can see what it would look like, then we can make those changes in js, thx-->
+    <!--"<div>" +
+          "<h2>" + data[i].name + "</h2>" +
+          "<p>" + data[i].street + "</p>" +
+          "<p>" + data[i].phone + "</p>" +
+          "<p>" + data[i].website_url + "</p>" +
+          "</div>";
+    -->
+    </div>
     <div class="city-weather" id="forecast">
         <aside class="card">
         <h3>Weather <span id ="city-name"></span> <span id="date-today"></span></h3>
@@ -53,5 +80,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script>feather.replace()</script>
     <script src="assets/script.js"></script>
+
+    <footer>2023</footer>
 </body>
 </html>
