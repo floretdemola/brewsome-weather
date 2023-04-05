@@ -64,3 +64,9 @@
     color: var(--light);
 
   }
+
+  .contact {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+  }
