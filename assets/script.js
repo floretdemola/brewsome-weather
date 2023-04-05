@@ -143,12 +143,9 @@ Breweries
   Pull the information from the arrays from the different breweries 
   
   Create elements and cards where this information will live 5 cards
-
 Weather
-
   When you search for the city, the data from the weather API will populate in it's own card to the right of the screen.
   Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
-
 */
 
 
