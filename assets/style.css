@@ -24,20 +24,20 @@
   }
 
   .labelbox {
-    margin: auto;
-    width: 15%;
-    align-items: center;
+    /* margin: auto; */
+    /* width: 15%; */
+    /* align-items: center; */
     background-color: var(--darkblue);
 
   }
 
-  .container {
+  /* .container {
     color: var(--light);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px; 
-  }
+  } */
 
 
   .city-weather {
@@ -66,7 +66,7 @@
   }
 
   .contact {
-    left: 0;
+    /* left: 0; */
     bottom: 0;
     position: absolute;
   }
@@ -75,7 +75,7 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color:  #E9573F;
+    /* background-color:  #E9573F; */
     text-align: center;
 }
 h1 {
@@ -87,7 +87,7 @@ h1 {
     transform: skew(0, -5deg);
 }
 section {
-     background-color: #FC6E51;
+     /* background-color: #FC6E51; */
 }
 #action {
     margin: 0 auto;
