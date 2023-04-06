@@ -24,30 +24,29 @@
   }
 
   .labelbox {
-    margin: auto;
-    width: 15%;
-    align-items: center;
+    /* margin: auto; */
+    /* width: 15%; */
+    /* align-items: center; */
     background-color: var(--darkblue);
 
   }
 
-  .container {
+  /* .container {
     color: var(--light);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px; 
-  }
+  } */
 
 
-  .city-weather {
+  /* .city-weather {
     text-align: center;
     color: var(--light);
-    position: fixed;
     margin: auto;
     padding: auto;
     width: 11rem;
-  }
+  } */
 
   .card  {
     display: block;
@@ -66,7 +65,7 @@
   }
 
   .contact {
-    left: 0;
+    /* left: 0; */
     bottom: 0;
     position: absolute;
   }
@@ -75,7 +74,7 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color:  #E9573F;
+    /* background-color:  #E9573F; */
     text-align: center;
 }
 h1 {
@@ -86,9 +85,7 @@ h1 {
     border-bottom: solid 5px white;
     transform: skew(0, -5deg);
 }
-section {
-     background-color: #FC6E51;
-}
+
 #action {
     margin: 0 auto;
     width: 700px;

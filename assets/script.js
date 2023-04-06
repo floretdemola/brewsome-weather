@@ -122,11 +122,11 @@ $("#Brewery").hide();
         var card1HTML = "";
         
         for (let i = 0; i < data.length; i++) {
-          card1HTML +=  "<div>" +
-          "<h2>" + data[i].name + "</h2>" +
-          "<p>" + data[i].street + "</p>" +
-          "<p>" + data[i].phone + "</p>" +
-          "<p>" + data[i].website_url + "</p>" +
+          card1HTML +=  "<div class='flex flex-col text-center border-4 w-1/4'>" +
+          "<h2 class='bg-sky-950  p-8 text-white border-b-4'>" + data[i].name + "</h2>" +
+          "<p class='bg-amber-700 p-4 text-white border-b-4'>" + data[i].street + "</p>" +
+          "<p class='bg-amber-700  p-4 text-white border-b-4'>" + data[i].phone + "</p>" +
+          "<p class='bg-amber-700 p-4 text-white'>" + data[i].website_url + "</p>" +
           "</div>";
         
           if (!data[i]) {
