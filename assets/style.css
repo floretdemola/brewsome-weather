@@ -40,14 +40,13 @@
   } */
 
 
-  .city-weather {
+  /* .city-weather {
     text-align: center;
     color: var(--light);
-    position: fixed;
     margin: auto;
     padding: auto;
     width: 11rem;
-  }
+  } */
 
   .card  {
     display: block;
@@ -86,9 +85,7 @@ h1 {
     border-bottom: solid 5px white;
     transform: skew(0, -5deg);
 }
-section {
-     /* background-color: #FC6E51; */
-}
+
 #action {
     margin: 0 auto;
     width: 700px;
