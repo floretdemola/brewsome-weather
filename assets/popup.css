@@ -31,7 +31,7 @@
 
 .popup {
     width: 400px;
-    background: var(--lightred);
+    background: rgb(148 163 184 / var(--tw-bg-opacity));
     border-radius: 25px;
     position: absolute;
     top: 0;
@@ -39,9 +39,9 @@
     transform: translate(-50%, -50%) scale(0.1);
     text-align: center;
     padding: 0 30px 30px;
-    color: var(--darkblue);
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
+    border: 2px solid black;
 }
 
 .open-popup {
@@ -55,7 +55,7 @@
 .check {
     width: 200px;
     margin-top: -100px;
-    margin-left: 20px;
+    margin-left: 80px;
 }
 
 .popup_h2 {
