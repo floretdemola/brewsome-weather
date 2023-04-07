@@ -6,44 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/feedback.css">
     <link rel="stylesheet" href="assets/popup.css">
+    <!-- Tail-Wind -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Brewsome Weather Feedback</title>
 </head>
-<body>
-    <h1>Survey Form</h1>
-    <p>Please fill out this form with the required information</p>
-    <div class="form">
-      <div class="section">
-        <label for="first-name">Enter Your First Name* <input id="first-name" name="first-name" type="text" required /></label>
-        <label for="last-name">Enter Your Last Name* <input id="last-name" name="last-name" type="text" required /></label>
-        <label for="email">Enter Your Email: <input id="email" name="email" type="email" /></label>
-      </div>
-      <div class="section">
-        <label class="question">How did you hear about us?
-            <!-- Option from a Dropdown -->
+<body class="bg-slate-400">
+  <form id="form" class="form">
+    <div class="text-center bg-sky-950 border-b-2">
+      <h1>Survey Form</h1>
+      <p>Please fill out this form with the required information</p>
+    </div>
+    <div class="border-b-2 bg-sky-950">
+      <div class="form bg-slate-400">
+        <div class="section">
+          <!-- Enter First Name -->
+          <label class="border-b-2 border-amber-700 p-1 mr-3" for="first-name">Enter Your First Name* </label>
+          <input id="first-name" name="first-name" type="text" required />
+          <!-- Enter Last Name -->
+          <label class="border-b-2 border-amber-700 p-1 mr-3" for="last-name">Enter Your Last Name*</label>
+          <input id="last-name" name="last-name" type="text" required />
+          <!-- Enter Email -->
+          <label class="border-b-2 border-amber-700 p-1 mr-3" for="email">Enter Your Email:</label>
+          <input id="email" name="email" type="email" />
+        </div>
+        <label class="question border-b-2 border-amber-700 p-1 mr-3">How did you hear about us?</label>
+        <div class="section">
+              <!-- Option from a Dropdown -->
             <select name="some_name" id="dropdown">
-					<option value="" selected>(pick one)</option>
-                    <option value="1">Search Engine (Google, Yahoo, etc)</option>
-					<option value="2">Recomended by a friend or colleague</option>
-					<option value="3">Social Media</option>
-					<option value="4">Blog or publication</option>
-					<option value="5">Other:
-                        
-                    </option>
-				    </select>
-        </label>
-    </div>
-      <div class="section">
-        <label for="age">Input your age (years): <input id="age" type="number" name="age" min="21" max="120" /></label>
-        <label for="bio">Comments or questions?
+              <option value="" selected>(pick one)</option>
+              <option value="1">Search Engine (Google, Yahoo, etc)</option>
+              <option value="2">Recomended by a friend or colleague</option>
+              <option value="3">Social Media</option>
+              <option value="4">Blog or publication</option>
+              <option value="5">Other:
+              </option>
+            </select>
+          
+      </div>
+        <div class="section">
+          <!-- Enter Age -->
+          <label class="border-b-2 border-amber-700 p-1 mr-3" for="age">Input your age (years):</label>
+          <input id="age" type="number" name="age" min="21" max="120" />
+          <!-- Comments & Questions -->
+          <label class="border-b-2 border-amber-700 p-1 mr-3" for="bio">Comments or questions?</label>
           <textarea id="bio" name="bio" rows="3" cols="30" placeholder="Comment here..."></textarea>
-        </label>
-    </div>
-        <input type="submit" class="submit" onclick="openPopup()">
+      </div>
+      </div>  
+      <button class="submit bg-amber-700 hover:bg-amber-500 p-1 rounded-lg text-center" onclick="openPopup()" id="submit" type="submit">
+        Submit
+      </button>
+    </form>
         <div class="popup" id="popup">
             <img class="check" src="assets\images\check.png">
             <h2 class="popup_h2">Thank You!</h2>
             <p>Your details have been submited. We appreciate your time!</p>
-            <button type="popup_button" onclick="closePopup()">
+            <button class="bg-amber-700 hover:bg-amber-500 p-1 rounded-lg ml-1" type="popup_button" onclick="closePopup()">
                 <a href="index.html"> OK </a>
             </button>
         </div>
