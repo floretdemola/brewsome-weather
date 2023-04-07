@@ -24,6 +24,8 @@ var submitCity = function (city) {
   
   $("#forecast").show();
   $("#Brewery").show();
+  $(".city-name-1").show();
+
 
   var breweries = city;
   var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + breweries + "&per_page=5";
@@ -61,7 +63,7 @@ function getApi(breweries) {
 
 $("#forecast").hide();
 $("#Brewery").hide();
-
+$("#city-name-1").hide();
 
 // formE1.addEventListener('submit',submitCity);
 // submit.addEventListener('click', getApi);
@@ -101,9 +103,6 @@ $("#Brewery").hide();
       console.log(data)
       $("#city-name").text(data.name);
       $("#date-today").text(`(${dayjs().format('MM/DD/YYYY')})`);
-      $("#weather-icon").attr(
-        "src",
-        `https://openweathermap.org/img/wn/${data.weather[0]}.png`);
       $("#temperature").text(data.main.temp + " F");
       $("#humidity").text(data.main.humidity + " %");
       $("#wind-speed").text(data.wind.speed + " MPH");
@@ -126,9 +125,9 @@ $("#Brewery").hide();
           "<h2 class='bg-sky-950  p-8 text-white border-b-4'>" + data[i].name + "</h2>" +
           "<p class='bg-amber-700 p-4 text-white border-b-4'>" + data[i].street + "</p>" +
           "<p class='bg-amber-700  p-4 text-white border-b-4'>" + data[i].phone + "</p>" +
-          "<p class='bg-amber-700 p-4 text-white'>" + data[i].website_url + "</p>" +
+          "<p class='bg-amber-700 p-4 text-white border-b-4'><a>" + data[i].website_url + "</a></p>" +
           "</div>";
-        
+
           if (!data[i]) {
           $("<p>").hide();
           }
@@ -136,7 +135,12 @@ $("#Brewery").hide();
   
         $("#local-brewery").html(card1HTML);
       })
-  };
+
+      var site1El = document.getElementById("website");
+
+        site1El.children[i].setAttribute("href", data[i].website_url.val().trim);
+    };
+
 
 /* Psuedo Code 
 Breweries
