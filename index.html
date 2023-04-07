@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Brewsome Weather!</title>
     <!-- Tail-Wind.css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,7 +15,7 @@
 <body class="bg-slate-400">
     
     <!-- header Start-->
-    <header>
+    <header class="h-fit">
         
         <!-- title starts -->
         <div class="text-center bg-sky-950 border-b-2" >
@@ -49,23 +50,28 @@
     <!-- header End-->
     
     <!-- search section starts -->
-    <div class="bg-sky-950 text-white flex border-b-2 border-t-2 justify-center items-center h-28">
+    <div class="bg-sky-950 text-white flex flex-row justify-evenly border-b-2 border-t-2 justify-center items-center h-28">
         <form id="form" class="form">
             <label class="border-b-2 border-amber-700 p-1 mr-3" for="city">Enter Your City & State :</label>
             <input type="text" name="city-name" id="cityname" placeholder=" For Example: Miami, FL" class="text-black "></input>
             <button class="bg-amber-700 hover:bg-amber-500 p-1 rounded-lg ml-3" id="submit" type="submit">Search</button>
-        </form>
+        </form>   
+            <div class="city-weather text-justify" id="forecast">
+                    <div>Weather in <span id ="city-name"></span> <span id="date-today"></span></div>
+                    <img id="weather-icon" src="https://openweathermap.org/img/wn/${weatherIcon}.png"/>
+                    <div> Temperature: <span id="temperature"></span> Wind: <span id="wind-speed"></span> Humidity: <span id="humidity"></span>
+                    </div>
+            </div>
     </div>
     <!-- search section end -->
-    
+    <h3>Local Breweries <span id ="city-name1"></span></h3>
+
     <div id='local-brewery' class='local-brewery'></div>
     
     <div class="local-brewery" id="Brewery">
         
         <div class="card1"></div>
-            
-        <h3>Local Breweries <span id ="city-name1"></span></h3>
-            
+                        
         <div class="card-body">
                 <p class="lead">
                 </span id="name">
@@ -90,7 +96,7 @@
           "<p>" + data[i].website_url + "</p>" +
           "</div>";
     -->
-    <!-- weather card start -->
+    <!-- weather card start 
     <div class="city-weather" id="forecast">
         <aside class="card">
         <h3>Weather <span id ="city-name"></span> <span id="date-today"></span></h3>
@@ -108,7 +114,7 @@
             </div>
         </aside>
     </div> 
-    <!-- weather card end-->
+    weather card end-->
     <!-- <div class="local-brewery"></div> -->
 
     <!-- contact Start -->
