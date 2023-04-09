@@ -65,9 +65,9 @@ $("#city-name-1").hide();
     $("#forecast").show();
   
 	  var api_key = "5dc2c34e3d2647f6f3d1dc8a103c14d7";
-	  var baseURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${api_key}`;
+	  var baseURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${api_key}`;
   
-	  fetch (baseURL)
+	  fetch(baseURL)
 
     .then(function(response){
       return response.json();
@@ -81,7 +81,7 @@ $("#city-name-1").hide();
 
     // getting the city's weather
     function getCityWeather(url) {
-    fetch (url)
+    fetch(url)
     .then(function(response){
       return response.json();
       })
@@ -133,5 +133,6 @@ Weather
   When you search for the city, the data from the weather API will populate in it's own card to the right of the screen.
   Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
 */
+
 
 });
