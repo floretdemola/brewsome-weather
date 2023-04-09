@@ -323,3 +323,13 @@ h1 {
         transform: skew(0, 3deg);
     }
 }
+
+.card1 {
+    flex-direction: row;
+}
+
+@media (max-width:600px){
+    .card1 {
+        flex-direction: column;
+    }
+}
