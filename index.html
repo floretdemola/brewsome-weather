@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-slate-400">
+<body class="bg-slate-400 flex flex-col min-h-screen">
     
     <!-- header Start-->
     <header class="h-fit">
@@ -50,7 +50,7 @@
     <!-- header End-->
     
     <!-- search section starts -->
-    <div class="bg-sky-950 text-white flex flex-row justify-evenly border-b-2 border-t-2 justify-center items-center h-28">
+    <div class="bg-sky-950 text-white flex flex-row justify-evenly border-2 justify-center items-center h-28">
         <form id="form" class="form">
             <label class="border-b-2 border-amber-700 p-1 mr-3" for="city">Enter Your City & State :</label>
             <input type="text" name="city-name" id="cityname" placeholder=" For Example: Miami, FL" class="text-black "></input>
@@ -87,43 +87,15 @@
             </div>
     </div>
     
-    <!--Added code for JS for the breweries to be populated. Please add the style here so we can see what it would look like, then we can make those changes in js, thx-->
-    <!--"<div>" +
-          "<h2>" + data[i].name + "</h2>" +
-          "<p>" + data[i].street + "</p>" +
-          "<p>" + data[i].phone + "</p>" +
-          "<p>" + data[i].website_url + "</p>" +
-          "</div>";
-    -->
-    <!-- weather card start 
-    <div class="city-weather" id="forecast">
-        <aside class="card">
-        <h3>Weather <span id ="city-name"></span> <span id="date-today"></span></h3>
-            <div class="card-body">
-            <img id="weather-icon" src="https://openweathermap.org/img/wn/${weatherIcon}.png"/>
-                <p class="lead">
-                    Temperature: <span id="temperature"></span id="temperature">
-                </p>
-                <p class="lead">
-                    Wind: <span id="wind-speed"></span>
-                </p>
-                <p class="lead">
-                    Humidity: <span id="humidity"></span>
-                </p> 
-            </div>
-        </aside>
-    </div> 
-    weather card end-->
-    <!-- <div class="local-brewery"></div> -->
+    <!--weather card end-->
 
     <!-- contact Start -->
-    <div class="text-white">
-        <p class="contact bg-amber-700  p-2 rounded-lg m-3"> 
-            Contact us <a class href="#" > Here!</a>
-            <a href="feedback.html">Click here to answer our  survey </a> form
+    <footer class="text-white w-80 mt-3">
+        <p class="contact bg-amber-700 p-2 rounded-lg m-3 mt-auto sticky">
+            <a href="feedback.html">Click here to take our  survey </a> form
         </p>
         
-    </div>
+    </footer>
     <!-- contact end -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

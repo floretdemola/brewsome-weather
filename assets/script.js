@@ -1,12 +1,8 @@
 var brewContainer = document.querySelector('#local-brewery');
-// var city = document.querySelector('#cityname').value;
 var city = document.getElementById('cityname')
-// var api = "https://api.openbrewerydb.org/v1/breweries?by_city=" + city.value + "&per_page=5";
 var submit = document.querySelector('#submit');
 var formE1 = document.querySelector('#form');
 
-// console.log('Inputted city = ' + city.value);
-// console.log(api);
 
 $(document).ready(function() {
 	$("#submit").on("click", function(event) {
@@ -37,7 +33,6 @@ var submitCity = function (city) {
     getApi(breweries);
 
     brewContainer.textContent = '';
-   // city.value = '';
 
   } else {
     alert('Please enter a valid city');
@@ -65,21 +60,12 @@ $("#forecast").hide();
 $("#Brewery").hide();
 $("#city-name-1").hide();
 
-// formE1.addEventListener('submit',submitCity);
-// submit.addEventListener('click', getApi);
-
 // Latitude & Longitude for weather
  function getLatLon (city) {
     $("#forecast").show();
   
 	  var api_key = "5dc2c34e3d2647f6f3d1dc8a103c14d7";
 	  var baseURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${api_key}`;
-
-    // var newURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
-  
-  
-	  // var unit = "imperial";
-	  // var newURL = baseURL + "&q=" + city + "&units=" + unit; 
   
 	  fetch (baseURL)
 
@@ -119,26 +105,22 @@ $("#city-name-1").hide();
       })
       .then(function(data) {
         var card1HTML = "";
-        
+
         for (let i = 0; i < data.length; i++) {
           card1HTML +=  "<div class='flex flex-col text-center border-4 w-1/4'>" +
           "<h2 class='bg-sky-950  p-8 text-white border-b-4'>" + data[i].name + "</h2>" +
           "<p class='bg-amber-700 p-4 text-white border-b-4'>" + data[i].street + "</p>" +
           "<p class='bg-amber-700  p-4 text-white border-b-4'>" + data[i].phone + "</p>" +
-          "<p class='bg-amber-700 p-4 text-white border-b-4'><a>" + data[i].website_url + "</a></p>" +
+          "<p class='bg-amber-700 p-4 text-white border-b-4'><a href="+ data[i].website_url + ">" + data[i].website_url + "</a></p>" +
           "</div>";
 
           if (!data[i]) {
           $("<p>").hide();
-          }
+          } 
         }
   
         $("#local-brewery").html(card1HTML);
       })
-
-      var site1El = document.getElementById("website");
-
-        site1El.children[i].setAttribute("href", data[i].website_url.val().trim);
     };
 
 
@@ -151,6 +133,5 @@ Weather
   When you search for the city, the data from the weather API will populate in it's own card to the right of the screen.
   Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
 */
-
 
 });
