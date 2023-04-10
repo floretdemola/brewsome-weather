@@ -5,6 +5,14 @@ var formE1 = document.querySelector('#form');
 
 
 $(document).ready(function() {
+  // local storage
+  var cities = localStorage.getItem('city');
+  if (cities) {
+    cities = JSON.parse(cities);
+  } else {
+    cities = []
+  }
+
 	$("#submit").on("click", function(event) {
 	  event.preventDefault();
 	  var city = $("#cityname").val();
@@ -13,10 +21,12 @@ $(document).ready(function() {
 	    } else {
 		getLatLon (city);
 	  submitCity(city);
-    }
+    cities.push(city);
+    localStorage.setItem('city', JSON.stringify(cities));
+      }
 	});
 
-var submitCity = function (city) {
+  var submitCity = function (city) {
   
   $("#forecast").show();
   $("#Brewery").show();
@@ -133,6 +143,5 @@ Weather
   When you search for the city, the data from the weather API will populate in it's own card to the right of the screen.
   Showing the temperature, humidity, and whether it would be sunny/cloudy/rainy etc using the icons from the feather website
 */
-
 
 });
