@@ -32,9 +32,6 @@ THEN I am directed to their site.
 
 * The URL of the GitHub repository, with a unique name and a README describing the project: https://github.com/floretdemola/group-project-01
 
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
-
 ### Code Sources
 
 * https://codepen.io/HugoGroutel/pen/JjWJMV
@@ -46,3 +43,5 @@ THEN I am directed to their site.
 ![The brewery app includes a search option, a list of cities, and the current weather conditions for Orlando.](./assets/images/Project_Pictue_2.png)
 ![Feedback page to gather information and ways to improve our site](./assets/images/Project_Pictue_3.png)
 
+---
+© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
